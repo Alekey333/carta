@@ -1,0 +1,166 @@
+body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #0d0d0d;
+    overflow-x: hidden;
+    font-family: "DM Serif Text", serif;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+}
+
+h1 {
+    color: #ff4d6d;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 77, 109, 0.7);
+    transition: transform 0.65s ease-in-out;
+    font-size: 2.2rem;
+}
+
+
+.psorpresa {
+    color: #ffffff;
+    margin-bottom: 30px;
+    transition: transform 0.65s ease-in-out;
+    font-size: 1.1rem;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://media.giphy.com/media/l0HlUJzF7v6VxV2pS/giphy.gif');
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -2;
+}
+
+.contenedor {
+    position: relative;
+    cursor: pointer;
+    margin-top: 300px; /* Esto baja la carta */
+    margin-bottom: 50px;
+}
+
+
+.superior {
+    position: absolute;
+    border-left: 315px solid transparent; /* 351px - 10% */
+    border-right: 315px solid transparent;
+    border-top: 210px solid #e63946;
+    border-bottom: 210px solid transparent;
+    transition: transform 0.75s ease-in-out;
+    transform-origin: top;
+    z-index: 1;
+}
+
+.mensaje {
+    position: absolute;
+    padding: 2rem;
+    line-height: 2rem;
+    box-sizing: border-box;
+    text-align: left;
+    font-family:'Times New Roman',cursive;
+    font-size: 25px;
+    background: rgba(0, 0, 0, 0);
+    color: #ffffff;
+    width: 650px;
+    height: 800px; /* Alto aumentado para que entre todo el texto */
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.75s ease-in-out, transform 0.75s ease-in-out;
+    transform: translateY(0);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ff4d6d #333;
+}
+
+.mensaje::-webkit-scrollbar {
+    width: 8px;
+}
+
+.mensaje::-webkit-scrollbar-thumb {
+    background-color: #ff4d6d;
+    border-radius: 5px;
+}
+
+.carta {
+    border-left: 315px solid #ff4d6d;
+    border-right: 315px solid #e63946;
+    border-top: 210px solid transparent;
+    border-bottom: 210px solid #ff4d6d;
+    transition: transform 0.4s ease, margin-top 0.75s ease;
+    box-shadow: 0 8px 16px rgba(230, 57, 70, 0.7);
+}
+
+.bx {
+    position: absolute;
+    color: #ffffff;
+    top: 160px;
+    right: 270px;
+    font-size: 85px;
+    animation: heartBeat 1.5s infinite;
+    z-index: 1;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.abrir-superior {
+    transform: rotateX(180deg);
+}
+
+.abrir-mensaje {
+    opacity: 1;
+    transform: translateY(-450px); /* Subimos más para liberar la carta */
+}
+
+/* Responsive móvil */
+@media (max-width: 600px) {
+    .mensaje {
+        width: 90vw;
+        height: 550px;
+        font-size: 18px;
+        padding: 1.5rem;
+    }
+
+    .abrir-mensaje {
+        transform: translateY(-180px);
+    }
+
+    .carta {
+        border-left: 200px solid #ff4d6d;
+        border-right: 200px solid #e63946;
+        border-top: 140px solid transparent;
+        border-bottom: 140px solid #ff4d6d;
+    }
+
+    .superior {
+        border-left: 200px solid transparent;
+        border-right: 200px solid transparent;
+        border-top: 140px solid #e63946;
+        border-bottom: 140px solid transparent;
+    }
+
+    .bx {
+        top: 100px;
+        right: 170px;
+        font-size: 60px;
+    }
+}
